@@ -119,13 +119,14 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll("[data-lang]").forEach((element) => {
       const key = element.getAttribute("data-lang");
       if (texts[lang][key]) {
-        element.innerText = texts[lang][key];
+        element.innerHTML = texts[lang][key];
       }
     });
     localStorage.setItem("selectedLanguage", lang);
   }
 
-  const savedLang = localStorage.getItem("selectedLanguage") || "en";
+  // Imposta sempre l'italiano quando la pagina viene caricata
+  const savedLang = "it";
   languageSelect.value = savedLang;
   changeLanguage(savedLang);
 
